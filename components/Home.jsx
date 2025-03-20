@@ -5,6 +5,7 @@ import '../src/App.css'
 import { useState } from 'react'
 
 import React from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Home() {
     const [expense, setExpense] = useState({
@@ -14,6 +15,8 @@ export default function Home() {
     })
     const [expenses, setExpenses] = useState(expenseData)
     const [roweditingid, setRowEditingId] = useState('')
+    const [data, UpdateLocaStorage] = useLocalStorage('Awper', ['AWP', 'Negev', 'AK-47', 'P-90'])
+
     return (
         <>
             <>
