@@ -14,7 +14,7 @@ export default function Home() {
         amount: ''
     })
     const [expenses, setExpenses] = useLocalStorage("expenses", expenseData)
-    const [roweditingid, setRowEditingId] = useLocalStorage('roweditingid', '')
+    const [roweditingid, setRowEditingId] = useState('')
 
     return (
         <>
