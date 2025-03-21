@@ -15,7 +15,7 @@ export default function Home() {
     })
     const [expenses, setExpenses] = useState(expenseData)
     const [roweditingid, setRowEditingId] = useState('')
-    const [data, UpdateLocaStorage] = useLocalStorage('Awper', ['AWP', 'Negev', 'AK-47', 'P-90'])
+    const [data, UpdateLocaStorage] = useLocalStorage('Player', [1, 2, 3])
 
     return (
         <>
@@ -26,7 +26,8 @@ export default function Home() {
                 <title>Expense Tracker</title>
                 <link rel="stylesheet" href="style.css" />
                 <main>
-                    <h1>Track Your Expense</h1>
+                    <h1 onClick={() => { UpdateLocaStorage([4, 5, 6]) }}>Track Your Expense</h1>
+                    <h2>{data}</h2>
                     <div className="expense-tracker">
                         <ExpenseForm expense={expense} setExpense={setExpense} roweditingid={roweditingid} setRowEditingId={setRowEditingId} setExpenses={setExpenses} />
                         <ExpenseTable expenses={expenses} setExpenses={setExpenses} setRowEditingId={setRowEditingId} setExpense={setExpense} />
