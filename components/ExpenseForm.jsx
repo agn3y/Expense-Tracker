@@ -105,7 +105,7 @@ export default function ExpenseForm({ setExpenses, expense, setExpense, rowediti
                 onChange={handleChange}
                 error={errors.amount}
             />
-            <button className="add-btn">{roweditingid ? "Updtae Data" : "Add Data"}</button>
+            <button className="add-btn">{roweditingid ? "Update Data" : "Add Data"}</button>
         </form>
     )
 }

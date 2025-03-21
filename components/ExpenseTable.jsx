@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useFilter } from '../hooks/useFilter'
 import ContextMenu from './ContextMenu'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function ExpenseTable({ expenses, setExpenses, setExpense, setRowEditingId }) {
 
     const [filtereData, setQuery] = useFilter(expenses, (data) => data.category)
     const [position, setPosition] = useState({})
-    const [rowId, setRowId] = useState('')
+    const [rowId, setRowId] = useLocalStorage('')
     const [sortcallback, setSortCallBack] = useState(() => () => { })
 
     const total = filtereData.reduce(

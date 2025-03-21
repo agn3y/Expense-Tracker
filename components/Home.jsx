@@ -8,14 +8,13 @@ import React from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Home() {
-    const [expense, setExpense] = useState({
+    const [expense, setExpense] = useLocalStorage("expense", {
         title: '',
         category: '',
         amount: ''
     })
-    const [expenses, setExpenses] = useState(expenseData)
-    const [roweditingid, setRowEditingId] = useState('')
-    const [data, UpdateLocaStorage] = useLocalStorage('Player', [1, 2, 3])
+    const [expenses, setExpenses] = useLocalStorage("expenses", expenseData)
+    const [roweditingid, setRowEditingId] = useLocalStorage('roweditingid', '')
 
     return (
         <>
@@ -26,8 +25,7 @@ export default function Home() {
                 <title>Expense Tracker</title>
                 <link rel="stylesheet" href="style.css" />
                 <main>
-                    <h1 onClick={() => { UpdateLocaStorage([4, 5, 6]) }}>Track Your Expense</h1>
-                    <h2>{data}</h2>
+                    <h1>Track Your Expense</h1>
                     <div className="expense-tracker">
                         <ExpenseForm expense={expense} setExpense={setExpense} roweditingid={roweditingid} setRowEditingId={setRowEditingId} setExpenses={setExpenses} />
                         <ExpenseTable expenses={expenses} setExpenses={setExpenses} setRowEditingId={setRowEditingId} setExpense={setExpense} />
