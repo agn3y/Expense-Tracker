@@ -47,21 +47,19 @@ export default function ExpenseForm({ setExpenses, expense, setExpense, rowediti
         if (Object.keys(validateResult).length) return;
 
         if (roweditingid) {
-            // If editing, update the existing expense
             setExpenses((prev) =>
                 prev.map((singleExpense) =>
                     singleExpense.id === roweditingid ? { ...expense, id: roweditingid } : singleExpense
                 )
             );
         } else {
-            // If adding new, create a new entry
+
             setExpenses((prevState) => [
                 ...prevState,
                 { ...expense, id: crypto.randomUUID() },
             ]);
         }
 
-        // Reset form and editing mode
         setExpense({ title: '', category: '', amount: '' });
         setRowEditingId(null);
     };
